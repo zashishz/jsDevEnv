@@ -9,14 +9,14 @@ describe('our first Test', ()=>{
 });
 
 describe('check file Content', ()=>{
-    it('should say Hello', (done) =>{
+    it('should say Users', (done) =>{
         const index = fs.readFileSync('./src/index.html', "utf-8");
         jsdom.env(index, (err, window)=>{
         if(err) {
             console.log(err);
         }
         const h2 = window.document.getElementsByTagName('h2')[0];
-        expect(h2.innerHTML).to.equal('Hello from Express');
+        expect(h2.innerHTML).to.equal('Users');
         done();
         window.close();
         });
